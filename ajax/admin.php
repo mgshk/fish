@@ -55,7 +55,8 @@ if(isset($_GET['action']) && $_GET['action'] === 'getList') {
 }
 
 if(isset($_GET['action']) && $_GET['action'] === 'uploadImage') {
-	try {
+	print_r($_FILES);
+	/*try {
 
 		if(!isset($_FILES['item_image']) || !is_uploaded_file($_FILES['item_image']['tmp_name'])){
 	       die('Image file is Missing!');
@@ -73,11 +74,15 @@ if(isset($_GET['action']) && $_GET['action'] === 'uploadImage') {
 	}
 
 	echo json_encode($result);
-	exit;
+	exit;*/
 }
 
 if(isset($_GET['action']) && $_GET['action'] === 'saveItem') {
 	try {
+
+
+		print_r($_REQUEST);
+		exit;
 
 		if( ! $_POST['item_name'])
 			throw new Exception("Enter Item Name");

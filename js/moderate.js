@@ -10,6 +10,10 @@ var moderate = {
 	    return decodeURIComponent(results[2].replace(/\+/g, " "));
 	},
 
+	uploadFile : function (value) {
+		alert(value);
+	},
+
 	saveItem : function() {
 
 		var item_id = moderate.getParameterByName('item_id');
