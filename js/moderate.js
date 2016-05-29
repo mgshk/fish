@@ -10,10 +10,6 @@ var moderate = {
 	    return decodeURIComponent(results[2].replace(/\+/g, " "));
 	},
 
-	uploadFile : function (value) {
-		alert(value);
-	},
-
 	saveItem : function() {
 
 		var item_id = moderate.getParameterByName('item_id');
@@ -90,31 +86,3 @@ var moderate = {
 if(moderate.getParameterByName('item_id')) {
 	moderate.getItem();
 }
-
-$(document).on('change', '#item_image' , function() {
-    $("#imageUploadForm").submit();
-});
-
-$('#imageUploadForm').on('submit', function(e) {
-    //e.preventDefault();
-    var formData = new FormData(this);
-
-    console.log(formData);
-
-    $.ajax({
-        type:'POST',
-        url: '../ajax/admin.php?action=uploadImage',
-        data: formData,
-        cache: false,
-        contentType: false,
-        processData: false,
-        success:function(data){
-            console.log("success");
-            console.log(data);
-        },
-        error: function(data){
-            console.log("error");
-            console.log(data);
-        }
-    });
-});
