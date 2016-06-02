@@ -1,5 +1,7 @@
 var moderate = {
 
+	img_name : null,
+
 	getParameterByName(name, url) {
 	    if (!url) url = window.location.href;
 	    name = name.replace(/[\[\]]/g, "\\$&");
@@ -8,10 +10,6 @@ var moderate = {
 	    if (!results) return null;
 	    if (!results[2]) return '';
 	    return decodeURIComponent(results[2].replace(/\+/g, " "));
-	},
-
-	uploadFile : function (value) {
-		alert(value);
 	},
 
 	saveItem : function() {
@@ -27,6 +25,7 @@ var moderate = {
 			method: 'POST',
 			data: {
 				item_id: item_id,
+				item_image: moderate.img_name,
 				item_name: document.getElementById('item_name').value,
 				item_type: document.querySelector('input[name = "item_type"]:checked').value,
 				item_quantity: document.getElementById('item_quantity').value,
@@ -35,7 +34,7 @@ var moderate = {
 			dataType: 'json',
 			success: function(resp) {
 				if (resp.error === 0) {
-					window.location.href = 'list.html';
+					window.location.href = 'list.php';
 				} else {
 					document.getElementById('errorMsg').innerHTML = resp.msg;
 					document.getElementById('errorMsg').className = "show";
@@ -87,6 +86,34 @@ var moderate = {
 	}
 };
 
-if(moderate.getParameterByName('item_id')) {
-	moderate.getItem();
-}
+
+$(document).ready(function() {
+
+	if(moderate.getParameterByName('item_id')) {
+		moderate.getItem();
+	}
+ 	
+ 	$('#file_upload_form').ajaxForm({
+ 		dataType: 'json',
+ 		complete: function (resp) {
+ 			var parsed = JSON.parse(resp.responseText);
+
+ 			if(parsed.error === 0) {
+ 				moderate.img_name = parsed.img_name;
+ 			} else {
+ 				document.getElementById('errorMsg').innerHTML = parsed.msg;
+				document.getElementById('errorMsg').className = "show";
+
+				setTimeout(function(){
+					document.getElementById('errorMsg').className = 'hide';
+				}, 3000);
+ 			}
+ 		}
+ 	});
+
+	$('#file_upload').on('change', function() {
+		$('#file_upload_form').submit();
+
+		return false;
+	});          
+});

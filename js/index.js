@@ -13,7 +13,7 @@ var index = {
 			dataType: 'json',
 			success: function(resp) {
 				if(resp.error === 0) {
-					window.location.href = "list.html";
+					window.location.href = "list.php";
 				} else {
 					document.getElementById('errorMsg').innerHTML = resp.msg;
 					document.getElementById('errorMsg').className = "show";

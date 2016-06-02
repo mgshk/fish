@@ -38,6 +38,8 @@ class Model_Admin extends PDO {
 		$stmt->bindParam(':item_price', $data['item_price'], PDO::PARAM_INT);   
 
 		$stmt->execute();
+
+		return $DBH->lastInsertId();
 	}
 
 	public static function editItem($data, $item_id) {

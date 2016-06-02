@@ -55,37 +55,44 @@ if(isset($_GET['action']) && $_GET['action'] === 'getList') {
 }
 
 if(isset($_GET['action']) && $_GET['action'] === 'uploadImage') {
-	print_r($_FILES);
-	/*try {
+	try 
+	{
+		$expensions = ['jpeg', 'jpg', 'png'];
 
-		if(!isset($_FILES['item_image']) || !is_uploaded_file($_FILES['item_image']['tmp_name'])){
-	       die('Image file is Missing!');
-	    }
+		if( ! isset($_FILES['item_image']) || ! is_uploaded_file($_FILES['item_image']['tmp_name']))
+			throw new Exception('Image file is Missing');
 
-	    $upload_image = $_FILES['item_image']; //file input   
-	    $unique_id  = uniqid(); //unique id for random filename
+		$file_ext = strtolower(end(explode('.',$_FILES['item_image']['name'])));
 
-	    echo $_FILES['item_image']['tmp_name'];
+		if(in_array($file_ext, $expensions)=== false)
+        	throw new Exception('extension not allowed, please choose a JPEG or PNG file.');
 
-		$result = ['error' => 0, 'unique_id' => $unique_id];
+		if($_FILES['item_image']['size'] > 2097152)
+        	throw new Exception('File size must be excately 2 MB');	
+
+	    $upload_image = $_FILES['item_image'];  
+	    $unique_id  = uniqid();
+
+	    move_uploaded_file($_FILES['item_image']['tmp_name'], '../img/tmp/'.$unique_id.'.jpg');
+
+		$result = ['error' => 0, 'img_name' => $unique_id.'.jpg'];
 
 	} catch (Exception $e) {
 		$result = ['error' => 1, 'msg' => $e->getMessage()];
 	}
 
 	echo json_encode($result);
-	exit;*/
+	exit;
 }
 
 if(isset($_GET['action']) && $_GET['action'] === 'saveItem') {
 	try {
 
-
-		print_r($_REQUEST);
-		exit;
-
 		if( ! $_POST['item_name'])
 			throw new Exception("Enter Item Name");
+
+		if( ! $_POST['item_image'])
+			throw new Exception("Upload item image");
 
 		if( ! ctype_digit($_POST['item_type']))
 			throw new Exception("Invalid item type");
@@ -104,9 +111,14 @@ if(isset($_GET['action']) && $_GET['action'] === 'saveItem') {
 		];
 
 		if( ! ctype_digit($_POST['item_id'])) {
-			Model_Admin::saveItem($data);
+			$id_item = Model_Admin::saveItem($data);
 		} else {
+			$id_item = $_POST['item_id'];
 			Model_Admin::editItem($data, $_POST['item_id']);
+		}
+
+		if (copy('../img/tmp/'.$_POST['item_image'], '../img/'.$id_item.'.jpg')) {
+			unlink('../img/tmp/'.$_POST['item_image']);
 		}
 
 		$result = ['error' => 0];
