@@ -8,7 +8,7 @@ class Model_Admin extends PDO {
 		$sql = 'SELECT * FROM f_items WHERE item_type = '.$type;
 		$stmt = $DBH->query($sql);
 
-		$row = $stmt->fetchAll();
+		$row = $stmt->fetchAll(PDO::FETCH_OBJ);
 
 		return empty($row) ? [] : $row;
 	}
