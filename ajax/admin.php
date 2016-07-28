@@ -91,9 +91,6 @@ if(isset($_GET['action']) && $_GET['action'] === 'saveItem') {
 		if( ! $_POST['item_name'])
 			throw new Exception("Enter Item Name");
 
-		if( ! $_POST['item_image'])
-			throw new Exception("Upload item image");
-
 		if( ! ctype_digit($_POST['item_type']))
 			throw new Exception("Invalid item type");
 
