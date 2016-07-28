@@ -73,6 +73,10 @@ if(isset($_GET['action']) && $_GET['action'] === 'uploadImage') {
 	    $upload_image = $_FILES['item_image'];  
 	    $unique_id  = uniqid();
 
+	    if ( ! file_exists('../img/tmp')) {
+		    mkdir('../img/tmp', 0777, true);
+		}
+
 	    move_uploaded_file($_FILES['item_image']['tmp_name'], '../img/tmp/'.$unique_id.'.jpg');
 
 		$result = ['error' => 0, 'img_name' => $unique_id.'.jpg'];

@@ -1,9 +1,11 @@
 <?php
 
-class Model_Admin extends PDO {
+require_once('../includes/db.php');
+
+class Model_Admin extends DBConnection {
 	
 	public static function getList($type) {
-		$DBH = new PDO('mysql:host=localhost; dbname=fish', 'admin', 'admin');
+		$DBH = new DBConnection();
 
 		$sql = 'SELECT * FROM f_items WHERE item_type = '.$type;
 		$stmt = $DBH->query($sql);
@@ -14,7 +16,7 @@ class Model_Admin extends PDO {
 	}
 
 	public static function getItem($item_id) {
-		$DBH = new PDO('mysql:host=localhost; dbname=fish', 'admin', 'admin');
+		$DBH = new DBConnection();
 
 		$sql = 'SELECT * FROM f_items WHERE item_id = '.$item_id;
 		$stmt = $DBH->query($sql);
@@ -25,7 +27,7 @@ class Model_Admin extends PDO {
 	}
 
 	public static function saveItem($data) {
-		$DBH = new PDO('mysql:host=localhost; dbname=fish', 'admin', 'admin');
+		$DBH = new DBConnection();
 
 		$sql = "INSERT INTO f_items(item_type, item_name, item_quantity, item_price) VALUES (
             :item_type, :item_name, :item_quantity, :item_price)";
@@ -43,7 +45,7 @@ class Model_Admin extends PDO {
 	}
 
 	public static function editItem($data, $item_id) {
-		$DBH = new PDO('mysql:host=localhost; dbname=fish', 'admin', 'admin');
+		$DBH = new DBConnection();
 
 		$sql = "UPDATE f_items SET item_type = :item_type, item_name = :item_name, 
             item_quantity = :item_quantity, item_price = :item_price WHERE item_id = :item_id";
@@ -60,7 +62,7 @@ class Model_Admin extends PDO {
 	}
 
 	public static function deleteItem($item_id) {
-		$DBH = new PDO('mysql:host=localhost; dbname=fish', 'admin', 'admin');
+		$DBH = new DBConnection();
 
 		$sql = "DELETE FROM f_items WHERE item_id = :item_id";
 		$stmt = $DBH->prepare($sql);

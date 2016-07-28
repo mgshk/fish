@@ -60,6 +60,8 @@ var list = {
 				document.getElementById('resultMsg').innerHTML = resp.msg;
 				document.getElementById('resultMsg').className = "show";
 
+				list.getList();
+
 				setTimeout(function(){
 					document.getElementById('resultMsg').className = 'hide';
 				}, 3000);
