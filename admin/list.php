@@ -55,7 +55,7 @@
           <td>{{item_quantity}}</td>
           <td>{{item_price}}</td>
           <td><a href="moderate.php?item_id={{item_id}}">Edit</a></td>
-          <td><a href="#" onClick="list.deleteItem({{item_id}});">Delete</a></td>
+          <td><a onClick="list.deleteItem({{item_id}});">Delete</a></td>
         </tr>
         {{/each}}
 

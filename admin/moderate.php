@@ -33,7 +33,7 @@
     <p id="errorMsg" class="hide"></p>
     <form id="file_upload_form" action="../ajax/admin.php?action=uploadImage" method="post" enctype="multipart/form-data">
       Name* :  <input type="text" name="item_name" id="item_name" placeholder="Enter Item Name" value="" />
-      Image upload* : 
+      Image upload : 
         <input type="file" name="item_image" id="file_upload"/>
       Type* :  <input type="radio" name="item_type" id="item_type1" value="1" /> Fish 
               <input type="radio" name="item_type" id="item_type2" value="2" /> Shellfish
