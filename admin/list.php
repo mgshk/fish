@@ -24,13 +24,14 @@
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">Add Items</a>
+        <a class="navbar-brand" href="moderate.php">Add Items</a>
       </div>
       <ul class="nav navbar-nav">
         <li class="active"><a data-type="1" onClick="list.getList(this.getAttribute('data-type'));">Fishes</a></li>
         <li><a data-type="2" onClick="list.getList(this.getAttribute('data-type'));">Shellfish Types</a></li>
         <li><a data-type="3" onClick="list.getList(this.getAttribute('data-type'));">Dry Fishes</a></li>
       </ul>
+      <a href="logout.php" aling="right">Logout</a>
     </div>
   </nav>
     

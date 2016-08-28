@@ -1,0 +1,5 @@
+@media screen and (max-width: 767px){
+	.slicknav_menu{display:block;}
+	#menu{display: none;}
+	
+}

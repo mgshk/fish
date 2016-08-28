@@ -18,25 +18,37 @@
   <script src="../js/bootstrap.min.js"></script>
   <script src="../js/handlebars.js"></script>
   <script src="../js/index.js"></script>
+  <link rel="stylesheet" href="../css/style.css" type="text/css">
+  <link href="../css/responsive.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 
   <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">Login</a>
-      </div>
-    </div>
+      <h3 class="text-center margin_bottom_20">
+        Admin sign in
+      </h3>
   </nav>
     
   <div class="container">
-    <p id="errorMsg" class="hide"></p>
-    <form>
-		Username : <input type="text" name="username" id="username" />
-		Password : <input type="password" name="password" id="password" />
-		<input type="button" value="login" onClick="index.login();" />
-	</form>
 
+      <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+      <p id="errorMsg" class="hide"></p>
+      <!-- <form>
+  		Username : <input type="text" name="username" id="username" />
+  		Password : <input type="password" name="password" id="password" />
+  		<input type="button" value="login" onClick="index.login();" />
+  	</form> -->
+
+      <form class="form-signin">
+            <label for="inputEmail" class="sr-only">Username</label>
+            <input type="text" name="username" id="username" class="form-control" placeholder="Username" required autofocus>
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
+            <button class="btn btn-lg btn-primary btn-block" type="submit" onClick="index.login();">Sign in</button>
+      </form>
+    </div>
+    </div>
   </div>
 
 </body>
