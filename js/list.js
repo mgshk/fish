@@ -72,4 +72,18 @@ var list = {
 	}
 };
 
+$(document).ready(function() {
+
+	$('.menuList').on('click', function() {
+		var type = $(this).data('type');
+
+		$('.nav').find('li').removeClass('active');
+		$(this).parent('li').addClass('active');
+
+		list.getList(type);
+
+		return false;
+	});
+});
+
 list.getList();

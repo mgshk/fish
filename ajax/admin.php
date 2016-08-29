@@ -14,10 +14,10 @@ if(isset($_GET['action']) && $_GET['action'] === 'userLogin') {
 		if( ! $_POST['password'])
 			throw new Exception("Enter password");
 			
-		if($_POST['username'] !== $config['login_username'])
+		if($_POST['username'] !== $config['admin_username'])
 			throw new Exception("Invalid username");
 
-		if($_POST['password'] !== $config['login_password'])
+		if($_POST['password'] !== $config['admin_password'])
 			throw new Exception("Invalid password");
 
 		$_SESSION['isLoggedIn'] = true;
@@ -118,10 +118,12 @@ if(isset($_GET['action']) && $_GET['action'] === 'saveItem') {
 			Model_Admin::editItem($data, $_POST['item_id']);
 		}
 
-		if (copy('../img/tmp/'.$_POST['item_image'], '../img/'.$id_item.'.jpg')) {
-			unlink('../img/tmp/'.$_POST['item_image']);
+		if ($_POST['item_image']) {
+			if (copy('../img/tmp/'.$_POST['item_image'], '../img/'.$id_item.'.jpg')) {
+				unlink('../img/tmp/'.$_POST['item_image']);
+			}
 		}
-
+		
 		$result = ['error' => 0];
 
 	} catch (Exception $e) {
