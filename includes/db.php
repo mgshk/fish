@@ -2,10 +2,10 @@
   class DBConnection extends PDO 
   {
     public function __construct() {
-      $username = 'admin';
-      $password = 'admin';
+      $username = 'root';
+      $password = '';
 
-      parent::__construct('mysql:host=localhost; dbname=fish', $username, $password);
+      parent::__construct('mysql:host=localhost; dbname=octosea', $username, $password);
     }
   }
 ?>

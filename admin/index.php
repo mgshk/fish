@@ -14,9 +14,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../css/bootstrap.min.css">
-  <script src="../js/jquery.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-  <script src="../js/handlebars.js"></script>
+  <script src="../js/lib/jquery.min.js"></script>
+  <script src="../js/lib/bootstrap.min.js"></script>
+  <script src="../js/lib/handlebars.js"></script>
   <script src="../js/index.js"></script>
   <link rel="stylesheet" href="../css/style.css" type="text/css">
   <link href="../css/responsive.css" type="text/css" rel="stylesheet" />
@@ -34,18 +34,13 @@
       <div class="row">
       <div class="col-md-4 col-md-offset-4">
       <p id="errorMsg" class="hide"></p>
-      <!-- <form>
-  		Username : <input type="text" name="username" id="username" />
-  		Password : <input type="password" name="password" id="password" />
-  		<input type="button" value="login" onClick="index.login();" />
-  	</form> -->
 
       <form class="form-signin">
-            <label for="inputEmail" class="sr-only">Username</label>
-            <input type="text" name="username" id="username" class="form-control" placeholder="Username" required autofocus>
-            <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
-            <button class="btn btn-lg btn-primary btn-block" type="submit" onClick="index.login();">Sign in</button>
+        <label for="inputEmail" class="sr-only">Username</label>
+        <input type="text" name="username" id="username" class="form-control" placeholder="Username" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" onClick="index.login();">Sign in</button>
       </form>
     </div>
     </div>
