@@ -2,8 +2,11 @@
 	
 	$config = [];
 
-	$config['login_username'] = 'admin';
-	$config['login_password'] = 'admin';
+	$config['admin_username'] = 'admin';
+	$config['admin_password'] = 'admin';
+
+	$config['mail_to'] = '';
+	$config['mail_subject'] = '';
 
 	return $config;
 ?>
