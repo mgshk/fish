@@ -36,7 +36,7 @@
 					    </div>
 					    <div class="form-group">
 					      <label for="usr">Phone No:</label>
-					      <input type="number" class="form-control" id="phone" required>
+					      <input type="text" class="form-control" id="phone" maxlength="10" required>
 					    </div>
 					    <div class="form-group">
 						  <label for="comment">Comment:</label>

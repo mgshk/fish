@@ -29,13 +29,13 @@
 			  </div>
 			  <div class="form-group">
 			    <label for="pwd">Mobile number:</label>
-			    <input type="number" class="form-control" id="reg_mobile" required>
+			    <input type="text" class="form-control" id="reg_mobile" maxlength="10" required>
 			  </div>
 			  <div class="form-group">
 				 <label for="comment">Address:</label>
 				 <textarea class="form-control" rows="4" id="reg_address" required></textarea>
 			  </div>
-			  <button type="button" class="btn btn-primary" onclick="user.register();">Register</button>
+			  <button type="button" class="btn btn-primary" onclick="login.register();">Register</button>
 			</form>
 	      </div>
 	      <div class="modal-footer">

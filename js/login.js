@@ -1,10 +1,14 @@
-var user = {
+var login = {
 
 	reg_email: '/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/',
 
+	navProductPage: false,
+
+	item_id: null,
+
 	register : function() {
 
-		if( ! user.__validate())
+		if( ! login.__validate())
 			return;
 		
 		$.ajax({
@@ -24,6 +28,7 @@ var user = {
 				if(resp.error === 0) {
 					document.getElementById('lgn_module').className = 'hide';
 					document.getElementById('reg_successMsg').innerHTML = resp.msg;
+					$('#register').modal('hide');
 
 					setTimeout(function(){
 						document.getElementById('reg_successMsg').className = 'hide';
@@ -58,7 +63,7 @@ var user = {
 			if (email === null || email === '')
 				throw "Enter email";
 
-			/*if (user.reg_email.test(email) === false)
+			/*if (login.reg_email.test(email) === false)
 				throw "Enter valid email";
 			*/
 
@@ -105,9 +110,14 @@ var user = {
 					password : document.getElementById('login_password').value
 				},
 				dataType: 'json',
-				success: function(resp) { console.log(resp);
+				success: function(resp) {
 					if(resp.error === 0) {
-						document.getElementById('lgn_module').className = 'hide';
+						if (login.navProductPage === true) {
+							window.location.href = './product.php?item_id='+login.item_id;
+						} else {
+							document.getElementById('lgn_module').className = 'hide';
+							$('#login').modal('hide');
+						}				
 					} else {
 						document.getElementById('ln_errorMsg').innerHTML = resp.msg;
 						document.getElementById('ln_errorMsg').className = "show";
@@ -129,6 +139,38 @@ var user = {
 		}
 
 		return false;
+	},
+
+	goProduct : function(item_id) {
+		$.ajax({
+			cache: false,
+			url: './ajax/user.php?action=checkUser',
+			type: 'POST',
+			data: {},
+			dataType: 'json',
+			success: function(resp) {
+				login.item_id = item_id;
+
+				if(resp.error === 0) {
+					window.location.href = './product.php?item_id='+item_id;
+				} else {
+					login.navProductPage = true;
+					$('#login').modal('show');
+				}
+			}
+		});
+
+		return false;
 	}
 };
 
+$(document).ready(function() {
+
+	$('#btn_login').on('click', function() {
+		$('#login').modal('show');
+	});
+
+	$('#btn_register').on('click', function() {
+		$('#register').modal('show');
+	});
+});

@@ -6,7 +6,7 @@
 	<!-- banner starts -->
 	<section id="banner">
 
-		<a href="contact.html" class="banner-top"><img src="img/banner-top.png" alt="BannerTop">
+		<a href="contact.php" class="banner-top"><img src="img/banner-top.png" alt="BannerTop">
 		</a>
 
 		<ul class="bxslider">
@@ -34,7 +34,7 @@
 								<p>{{item_name}}</p>
 								<h6>Rs {{item_price}} / KG</h6>
 							</div>
-							<button onclick="user.goProduct('{{item_id}}');">Order Now</button>
+							<button onclick="login.goProduct('{{item_id}}');">Order Now</button>
 						</div>
 					{{/each}}
 				</script>

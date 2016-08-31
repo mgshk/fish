@@ -34,10 +34,10 @@
 
 				<div class="header-right pull-right col-md-10">
 					<div class="full-width">
-						<?php if (!$_SESSION['user_id']) { ?>
+						<?php if (!isset($_SESSION['user_id'])) { ?>
 							<span class="pull-right lgn" id="lgn_module">
-								<button type="button" class="btn btn-success" data-toggle="modal" data-target="#login">Login</button>
-								<button type="button" class="btn btn-info" data-toggle="modal" data-target="#register">Register</button>
+								<button type="button" class="btn btn-success" id="btn_login">Login</button>
+								<button type="button" class="btn btn-info" id="btn_register">Register</button>
 							</span>
 						<?php } ?>
 

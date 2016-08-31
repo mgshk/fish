@@ -9,7 +9,7 @@ var contact = {
 		
 		$.ajax({
 			cache: false,
-			url: '../ajax/user.php?action=sendFeedback',
+			url: './ajax/user.php?action=sendFeedback',
 			type: 'POST',
 			data: {
 				name : document.getElementById('name').value,

@@ -18,7 +18,7 @@
 			    <label for="pwd">Password:</label>
 			    <input type="password" class="form-control" id="login_password">
 			  </div>
-			  <button type="button" class="btn btn-primary" onclick="user.login();">Sign in</button>
+			  <button type="button" class="btn btn-primary" onclick="login.login();">Sign in</button>
 			</form>
 	      </div>
 	      <div class="modal-footer">

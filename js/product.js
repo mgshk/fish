@@ -1,5 +1,9 @@
 var product = {
 
+	total_quantity: null,
+
+	total_price: null,
+
 	getItem : function() {
 		
 		$.ajax({
@@ -46,6 +50,8 @@ var product = {
 
 	updatePrice : function(quantity, price) {
 		var total =  quantity * price;
+		product.total_quantity = quantity;
+
 		$('#price').text(total);
 	},
 
@@ -55,7 +61,8 @@ var product = {
 			url: './ajax/product.php?action=orderNow',
 			type: 'POST',
 			data: {
-				item_id: item_id
+				item_id: item_id,
+				item_quantity: product.total_quantity
 			},
 			dataType: 'json',
 			success: function(resp) {
