@@ -26,7 +26,9 @@ var login = {
 			dataType: 'json',
 			success: function(resp) {
 				if(resp.error === 0) {
-					document.getElementById('lgn_module').className = 'hide';
+					$('#btn_login, #btn_register').addClass('hide');
+					$('.btn_logout').addClass('show');
+
 					document.getElementById('reg_successMsg').innerHTML = resp.msg;
 					document.getElementById('reg_successMsg').className = "show";
 					$('#register').modal('hide');
@@ -118,7 +120,8 @@ var login = {
 						if (login.navProductPage === true) {
 							window.location.href = './product.php?item_id='+login.item_id;
 						} else {
-							document.getElementById('lgn_module').className = 'hide';
+							$('#btn_login, #btn_register').addClass('hide');
+							$('.btn_logout').addClass('show');
 							$('#login').modal('hide');
 						}				
 					} else {

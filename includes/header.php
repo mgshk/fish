@@ -36,8 +36,13 @@
 					<div class="full-width">
 						<?php if (!isset($_SESSION['user_id'])) { ?>
 							<span class="pull-right lgn" id="lgn_module">
-								<button type="button" class="btn btn-success" id="btn_login">Login</button>
-								<button type="button" class="btn btn-info" id="btn_register">Register</button>
+								<button type="button" class="btn btn-info" id="btn_login">Login</button>
+								<button type="button" class="btn btn-warning" id="btn_register">Register</button>
+								<button type="button" class="btn btn-success btn_logout hide" onclick="window.location.href='logout.php'">Logout</button>
+							</span>
+						<?php } else { ?>
+							<span class="pull-right lgn">
+								<button type="button" class="btn btn-success btn_logout" onclick="window.location.href='logout.php'">Logout</button>
 							</span>
 						<?php } ?>
 
