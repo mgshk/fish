@@ -30,7 +30,7 @@
 							KG(S)
 						</p>
 						<p>Total Amount to Pay: Rs.<span id="price">{{item.item_price}}</span></p>
-						<button onclick="product.orderNow({{item.item_id}});">Book for Home Delievery</button>
+						<button onclick="product.orderNow({{item.item_id}});" class="btn btn-primary">Book for Home Delievery</button>
 					</div>
 				</script>
 

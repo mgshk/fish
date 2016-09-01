@@ -11,9 +11,8 @@
 
 		<ul class="bxslider">
 			<li><img src="img/banner1.jpg" alt="Banner1" class="img-responsive"></li>
-			<li><img src="img/banner1.jpg" alt="Banner1" class="img-responsive"></li>
-			<li><img src="img/banner1.jpg" alt="Banner1" class="img-responsive"></li>
-			<li><img src="img/banner1.jpg" alt="Banner1" class="img-responsive"></li>
+			<li><img src="img/banner2.jpg" alt="Banner1" class="img-responsive"></li>
+			<li><img src="img/banner3.jpg" alt="Banner1" class="img-responsive"></li>
 		</ul>
 	</section>
 	<!-- banner starts -->

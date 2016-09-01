@@ -26,7 +26,7 @@
   <nav class="navbar navbar-default">
     <h3 class="text-center margin_bottom_20">
         Add/ Edit Item
-        <a href="logout.php" aling="right">Logout</a>
+        <a href="logout.php" aling="right" class="btn btn-success lgout">Logout</a>
     </h3>
   </nav>
     
