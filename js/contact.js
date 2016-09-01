@@ -1,6 +1,6 @@
 var contact = {
 
-	reg_email: '/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/',
+	reg_email: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
 
 	sendFeedback : function() {
 
@@ -52,9 +52,9 @@ var contact = {
 			if (email === null || email === '')
 				throw "Enter email";
 
-			/*if (contact.reg_email.test(email) === false)
+			if (contact.reg_email.test(email) === false)
 				throw "Enter valid email";
-			*/
+	
 			if (phone === null || phone === '')
 				throw "Enter phone";
 

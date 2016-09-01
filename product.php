@@ -37,6 +37,9 @@
 				<script id="errorResult" type="text/x-handlebars-template">
 			      <h5>{{{msg}}}</h5>
 			    </script>
+
+			    <p id="successMsg" class="hide"></p>
+				<p id="errorMsg" class="hide"></p>
 			</div>
 		</div>
 		</section>

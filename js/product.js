@@ -67,9 +67,18 @@ var product = {
 			dataType: 'json',
 			success: function(resp) {
 				if(resp.error === 0) {
-					
+					document.getElementById('successMsg').innerHTML = resp.msg;
+
+					setTimeout(function(){
+						document.getElementById('successMsg').className = 'hide';
+					}, 3000);
 				} else {
-					
+					document.getElementById('errorMsg').innerHTML = resp.msg;
+					document.getElementById('errorMsg').className = "show";
+
+					setTimeout(function(){
+						document.getElementById('errorMsg').className = 'hide';
+					}, 3000);
 				}
 			}
 		});

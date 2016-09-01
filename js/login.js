@@ -1,6 +1,6 @@
 var login = {
 
-	reg_email: '/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/',
+	reg_email: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
 
 	navProductPage: false,
 
@@ -63,9 +63,8 @@ var login = {
 			if (email === null || email === '')
 				throw "Enter email";
 
-			/*if (login.reg_email.test(email) === false)
+			if (login.reg_email.test(email) === false)
 				throw "Enter valid email";
-			*/
 
 			if (password !== confirm_password)
 				throw "Confirm password does not match";
@@ -97,6 +96,9 @@ var login = {
 
 			if (email === null || email === '')
 				throw "Enter email";
+
+			if (login.reg_email.test(email) === false)
+				throw "Enter valid email";
 
 			if (password === null || password === '')
 				throw "Enter password";
