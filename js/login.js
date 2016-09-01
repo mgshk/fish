@@ -28,6 +28,7 @@ var login = {
 				if(resp.error === 0) {
 					document.getElementById('lgn_module').className = 'hide';
 					document.getElementById('reg_successMsg').innerHTML = resp.msg;
+					document.getElementById('reg_successMsg').className = "show";
 					$('#register').modal('hide');
 
 					setTimeout(function(){

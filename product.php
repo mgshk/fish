@@ -13,7 +13,7 @@
 			<div class="row aboutPage">
 
 				<div class="col-xs-12 col-sm-6 col-md-6">
-					<img src="img/banner1.jpg" alt="Banner1" class="img-responsive">
+					<img src="./img/<?php echo $_GET['item_id']; ?>.jpg" alt="Banner1" class="img-responsive">
 				</div>
 				<div id="tabItem"></div>
 				<input type="hidden" id="item_id" value="<?php echo $_GET['item_id']; ?>" />
@@ -22,7 +22,7 @@
 						<h1>{{item.item_name}}</h1>
 						<p>Rs.{{item.item_price}}/Kg</p>
 						<p>Select How many KG&rsquo;s you want
-							<select onchange="product.updatePrice(this.value, {{item.item_price}});">
+							<select id="dd_quantity" onchange="product.updatePrice({{item.item_price}});">
 							{{#each item_quantity}}
 								<option value="{{this}}">{{this}}</option>
 							{{/each}}
@@ -38,8 +38,8 @@
 			      <h5>{{{msg}}}</h5>
 			    </script>
 
-			    <p id="successMsg" class="hide"></p>
-				<p id="errorMsg" class="hide"></p>
+			    <p id="o_successMsg" class="hide"></p>
+				<p id="o_errorMsg" class="hide"></p>
 			</div>
 		</div>
 		</section>

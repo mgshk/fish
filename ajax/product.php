@@ -33,7 +33,7 @@ if(isset($_GET['action']) && $_GET['action'] === 'orderNow') {
 		if( ! ctype_digit($_POST['item_id']))
 			throw new Exception("Invalid item");
 
-		if( ! ctype_digit($_POST['item_quantity']))
+		if( ! $_POST['item_quantity'])
 			throw new Exception("Invalid item quantity");
 
 		$item = Model_User::getItem($_POST['item_id']);

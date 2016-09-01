@@ -48,7 +48,8 @@ var product = {
 		return false;
 	},
 
-	updatePrice : function(quantity, price) {
+	updatePrice : function(price) {
+		var quantity = $('#dd_quantity').val();
 		var total =  quantity * price;
 		product.total_quantity = quantity;
 
@@ -62,22 +63,23 @@ var product = {
 			type: 'POST',
 			data: {
 				item_id: item_id,
-				item_quantity: product.total_quantity
+				item_quantity: $('#dd_quantity').val()
 			},
 			dataType: 'json',
 			success: function(resp) {
 				if(resp.error === 0) {
-					document.getElementById('successMsg').innerHTML = resp.msg;
+					document.getElementById('o_successMsg').innerHTML = resp.msg;
+					document.getElementById('o_successMsg').className = "show";
 
 					setTimeout(function(){
-						document.getElementById('successMsg').className = 'hide';
+						document.getElementById('o_successMsg').className = 'hide';
 					}, 3000);
 				} else {
-					document.getElementById('errorMsg').innerHTML = resp.msg;
-					document.getElementById('errorMsg').className = "show";
+					document.getElementById('o_errorMsg').innerHTML = resp.msg;
+					document.getElementById('o_errorMsg').className = "show";
 
 					setTimeout(function(){
-						document.getElementById('errorMsg').className = 'hide';
+						document.getElementById('o_errorMsg').className = 'hide';
 					}, 3000);
 				}
 			}

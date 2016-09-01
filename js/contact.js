@@ -21,6 +21,7 @@ var contact = {
 			success: function(resp) {
 				if(resp.error === 0) {
 					document.getElementById('successMsg').innerHTML = resp.msg;
+					document.getElementById('successMsg').className = "show";
 
 					setTimeout(function(){
 						document.getElementById('successMsg').className = 'hide';

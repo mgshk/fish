@@ -14,11 +14,8 @@ if(isset($_GET['action']) && $_GET['action'] === 'userLogin') {
 		if( ! $_POST['password'])
 			throw new Exception("Enter password");
 			
-		if($_POST['username'] !== $config['admin_username'])
-			throw new Exception("Invalid username");
-
-		if($_POST['password'] !== $config['admin_password'])
-			throw new Exception("Invalid password");
+		if($_POST['username'] !== $config['admin_username'] || $_POST['password'] !== $config['admin_password'])
+			throw new Exception("Invalid credentials");
 
 		$_SESSION['isLoggedIn'] = true;
 

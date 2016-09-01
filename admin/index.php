@@ -37,10 +37,10 @@
 
       <form class="form-signin">
         <label for="inputEmail" class="sr-only">Username</label>
-        <input type="text" name="username" id="username" class="form-control" placeholder="Username" required autofocus>
+        <input type="text" name="username" id="username" class="form-control" placeholder="Username" autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
-        <button class="btn btn-lg btn-primary btn-block" type="submit" onClick="index.login();">Sign in</button>
+        <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+        <button class="btn btn-lg btn-primary btn-block" type="button" onClick="index.login();">Sign in</button>
       </form>
     </div>
     </div>
