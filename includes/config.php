@@ -9,7 +9,7 @@
 	$config['headers'] .= 'From: Octoseafoods <octoseafoods@gmail.com>' . "\r\n";
 	$config['headers'] .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n"; 
 
-	$config['mail_to'] = '';
+	$config['mail_to'] = 'nagamuraliweb@gmail.com';
 	//octoseafoods@gmail.com
 
 	$config['feedback_subject'] = 'Customer Feedback';

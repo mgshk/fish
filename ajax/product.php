@@ -64,7 +64,7 @@ if(isset($_GET['action']) && $_GET['action'] === 'orderNow') {
 		if (empty($order_id))
 			throw new Exception("DB Error while ordering the item");
 
-		$order_template = "<table>
+		$order_template = "<table style='border:2px solid blue;'>
 		<tr>
 			<td>Order Id : </td>
 			<td>".$order_id."</td>
@@ -91,11 +91,11 @@ if(isset($_GET['action']) && $_GET['action'] === 'orderNow') {
 		</tr>
 		<tr>
 			<td>Item Quantity : </td>
-			<td>".$item->item_quantity."</td>
+			<td>".$item-> $_POST['item_quantity']."</td>
 		</tr>
 		<tr>
 			<td>Total Price : </td>
-			<td>".$item->item_quantity * $item->item_price."</td>
+			<td>".$item-> $_POST['item_quantity'] * $item->item_price."</td>
 		</tr>
 		</table>";
 

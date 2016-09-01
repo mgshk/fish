@@ -122,4 +122,4 @@
 
 <?php
 	include 'includes/footer.php';
-?>s
+?>
