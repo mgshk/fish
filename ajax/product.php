@@ -91,11 +91,11 @@ if(isset($_GET['action']) && $_GET['action'] === 'orderNow') {
 		</tr>
 		<tr>
 			<td>Item Quantity : </td>
-			<td>".$item-> $_POST['item_quantity']."</td>
+			<td>".$_POST['item_quantity']."</td>
 		</tr>
 		<tr>
 			<td>Total Price : </td>
-			<td>".$item-> $_POST['item_quantity'] * $item->item_price."</td>
+			<td>".$_POST['item_quantity'] * $item->item_price."</td>
 		</tr>
 		</table>";
 

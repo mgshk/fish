@@ -59,7 +59,11 @@ if(isset($_GET['action']) && $_GET['action'] === 'uploadImage') {
 		if( ! isset($_FILES['item_image']) || ! is_uploaded_file($_FILES['item_image']['tmp_name']))
 			throw new Exception('Image file is Missing');
 
-		$file_ext = strtolower(end(explode('.',$_FILES['item_image']['name'])));
+		$item_name = $_FILES['item_image']['name'];
+		$file_explode = explode('.', $item_name);
+		$file_end = end($file_explode);
+
+		$file_ext = strtolower($file_end);
 
 		if(in_array($file_ext, $expensions)=== false)
         	throw new Exception('extension not allowed, please choose a JPEG or PNG file.');
