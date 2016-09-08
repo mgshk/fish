@@ -2,8 +2,8 @@
 	
 	$config = [];
 
-	$config['admin_username'] = 'admin';
-	$config['admin_password'] = 'admin';
+	$config['admin_username'] = 'octoadmin';
+	$config['admin_password'] = 'octoseafoods';
 
 	$config['headers'] =  'MIME-Version: 1.0' . "\r\n"; 
 	$config['headers'] .= 'From: Octoseafoods <octoseafoods@gmail.com>' . "\r\n";
