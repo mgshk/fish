@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Admin-Moderate</title>
+  <title>Registered Users</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -26,49 +26,54 @@
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="moderate.php">Add Items</a>
+        <a class="navbar-brand" href="list.php">List of Fish</a>
+        <a class="navbar-brand" href="#">Registered Users in Octoseafoods</a>
       </div>
-      <ul class="nav navbar-nav fsh">
-        <li class="active"><a class="menuList" data-type="1">Fishes</a></li>
-        <li><a data-type="2" class="menuList">Shellfish Types</a></li>
-        <li><a data-type="3" class="menuList">Dry Fishes</a></li>
-        <li><a href="registered_users.php">Registered Users</a></li>
-      </ul>
+
       <a href="logout.php" aling="right" class="btn btn-success lgout">Logout</a>
     </div>
   </nav>
     
   <div class="container">
-    <p id="resultMsg" class="hide"></p>
-    <div>
-    <a href="moderate.php" class="btn btn-info">Add New Item</a>
-  </div>
+    
     <div id="tabItems"></div>
 
-    <script id="itemList" type="text/x-handlebars-template">
     <div class="table-responsive">
       <table width="100%" class="table table-bordered table-inverse">
         <tr class="success">
-          <th>Name</th>
-          <th>Available stock Kgs</th>
-          <th>Price</th>
-          <th>Edit</th>
-          <th>Delete</th>
+          <th>User Name</th>
+          <th>User Email</th>
+          <th>User Mobile No</th>
+          <th>User Address</th>
         </tr>
 
-        {{#each items}}
         <tr class="danger">
-          <td>{{item_name}}</td>
-          <td>{{item_quantity}}</td>
-          <td>{{item_price}}</td>
-          <td><a href="moderate.php?item_id={{item_id}}" class="btn btn-primary">Edit</a></td>
-          <td><a onClick="list.deleteItem({{item_id}});" class="btn btn-primary">Delete</a></td>
+          <td>Murali</td>
+          <td>naga@gmail.com</td>
+          <td>89898989</td>
+          <td>velachery</td>
         </tr>
-        {{/each}}
-
+        <tr class="danger">
+          <td>Murali</td>
+          <td>naga@gmail.com</td>
+          <td>89898989</td>
+          <td>velachery</td>
+        </tr>
+        <tr class="danger">
+          <td>Murali</td>
+          <td>naga@gmail.com</td>
+          <td>89898989</td>
+          <td>velachery</td>
+        </tr>
+        <tr class="danger">
+          <td>Murali</td>
+          <td>naga@gmail.com</td>
+          <td>89898989</td>
+          <td>velachery</td>
+        </tr>
       </table>
       </div>
-    </script>
+
 
     <script id="errorResult" type="text/x-handlebars-template">
       <h4>{{{msg}}}</h4>

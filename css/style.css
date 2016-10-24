@@ -47,7 +47,7 @@ header{width: 100%;float: left;background: #ffffff;height: 125px;}
 #productsList h5 span{font-family: sans-serif !important;}
 .order-cart{margin-top: 25px;cursor: pointer;font-weight: bold;font-size: 16px;}
 footer{width: 100%;float: left;height: 366px;background: url('../img/footer-bg.jpg') no-repeat center;}
-.product{width: 219px;display: inline-block;margin: 0 20px 40px 20px;border: 1px solid #dddddd;
+.product{width: 219px;display: inline-block;margin: 0 20px 40px 20px;
     padding: 20px 0;border-radius: 5px;}
 .product p{color: #8c0509;font-size: 18px;font-weight: 600;font-style: italic;margin-top: 10px;}
 .product h6{color: #8c0509;font-family: 'Bad Script', cursive;font-size: 18px;font-weight: 600;}
@@ -116,3 +116,16 @@ margin-top: 20px;}
 #errorResult{color: #3c763d;
     background-color: #dff0d8;
     border-color: #d6e9c6;width: 100%;float: left;font-weight: bold;height: 40px;line-height: 40px;}
+#searchbox{width: 100%;float: left;height: 41px;position: relative;margin-bottom: 20px;}
+.searchbxsubmit{background-color: #ffe11b;
+    border: 1px solid #ffe11b;
+    border-radius: 0 2px 2px 0;
+    color: #565656;
+    padding: 10px 0;
+    height: 42px;
+    cursor: pointer;
+    cursor: pointer;
+    width: 60px;
+    position: absolute;
+    top: 0;
+    right: 0;}
