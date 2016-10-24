@@ -166,6 +166,25 @@ if(isset($_GET['action']) && $_GET['action'] === 'getItems') {
 	exit;
 }
 
+if(isset($_GET['action']) && $_GET['action'] === 'getUsers') {
+
+	try {
+
+		$users = Model_User::getUsers();
+
+		if(empty($users))
+			throw new Exception("No records found");
+
+		$result = ['error' => 0, 'users' => json_encode($users)];
+
+	} catch (Exception $e) {
+		$result = ['error' => 1, 'msg' => $e->getMessage()];
+	}
+
+	echo json_encode($result);
+	exit;
+}
+
 if(isset($_GET['action']) && $_GET['action'] === 'checkUser') {
 
 	try {

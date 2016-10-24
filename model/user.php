@@ -67,6 +67,19 @@ class Model_User extends DBConnection {
 		return empty($row) ? [] : $row;
 	}
 
+	public static function getUsers() {
+		$DBH = new DBConnection();
+
+		$sql = "SELECT * FROM users";
+
+		$stmt = $DBH->prepare($sql);
+		$stmt->execute();
+
+		$row = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+		return empty($row) ? [] : $row;
+	}
+
 	public static function getItem($item_id) {
 		$DBH = new DBConnection();
 

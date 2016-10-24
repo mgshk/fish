@@ -17,7 +17,7 @@
   <script src="../js/lib/jquery.min.js"></script>
   <script src="../js/lib/bootstrap.min.js"></script>
   <script src="../js/lib/handlebars.js"></script>
-  <script src="../js/list.js"></script>
+  <script src="../js/registered_users.js"></script>
   <link rel="stylesheet" href="../css/style.css" type="text/css">
   <link href="../css/responsive.css" type="text/css" rel="stylesheet" />
 </head>
@@ -36,8 +36,9 @@
     
   <div class="container">
     
-    <div id="tabItems"></div>
+    <div id="tabUsers"></div>
 
+    <script id="userList" type="text/x-handlebars-template">
     <div class="table-responsive">
       <table width="100%" class="table table-bordered table-inverse">
         <tr class="success">
@@ -47,33 +48,22 @@
           <th>User Address</th>
         </tr>
 
+        {{#each users}}
         <tr class="danger">
-          <td>Murali</td>
-          <td>naga@gmail.com</td>
-          <td>89898989</td>
-          <td>velachery</td>
+          <td>{{name}}</td>
+          <td>{{email}}</td>
+          <td>{{mobile}}</td>
+          <td>{{address}}</td>
         </tr>
-        <tr class="danger">
-          <td>Murali</td>
-          <td>naga@gmail.com</td>
-          <td>89898989</td>
-          <td>velachery</td>
-        </tr>
-        <tr class="danger">
-          <td>Murali</td>
-          <td>naga@gmail.com</td>
-          <td>89898989</td>
-          <td>velachery</td>
-        </tr>
-        <tr class="danger">
-          <td>Murali</td>
-          <td>naga@gmail.com</td>
-          <td>89898989</td>
-          <td>velachery</td>
-        </tr>
+        {{/each}}
+
       </table>
       </div>
+    </script>
 
+    <script id="errorResult" type="text/x-handlebars-template">
+      <h4>{{{msg}}}</h4>
+    </script>
 
     <script id="errorResult" type="text/x-handlebars-template">
       <h4>{{{msg}}}</h4>
