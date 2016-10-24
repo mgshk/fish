@@ -166,6 +166,28 @@ if(isset($_GET['action']) && $_GET['action'] === 'getItems') {
 	exit;
 }
 
+if(isset($_GET['action']) && $_GET['action'] === 'getSearchItems') {
+
+	try {
+
+		if(empty($_POST['searchtxt']))
+			throw new Exception("No records found");
+
+		$items = Model_User::getSearchItems($_POST['searchtxt']);
+
+		if(empty($items))
+			throw new Exception("No records found");
+
+		$result = ['error' => 0, 'items' => json_encode($items)];
+
+	} catch (Exception $e) {
+		$result = ['error' => 1, 'msg' => $e->getMessage()];
+	}
+
+	echo json_encode($result);
+	exit;
+}
+
 if(isset($_GET['action']) && $_GET['action'] === 'getUsers') {
 
 	try {

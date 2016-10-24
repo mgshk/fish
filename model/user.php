@@ -67,6 +67,19 @@ class Model_User extends DBConnection {
 		return empty($row) ? [] : $row;
 	}
 
+	public static function getSearchItems($searchtxt) {
+		$DBH = new DBConnection();
+
+		$sql = "SELECT * FROM items WHERE item_name LIKE :searchtxt";
+
+		$stmt = $DBH->prepare($sql);
+		$stmt->execute(array(':searchtxt' => '%'.$searchtxt.'%'));
+
+		$row = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+		return empty($row) ? [] : $row;
+	}
+
 	public static function getUsers() {
 		$DBH = new DBConnection();
 
